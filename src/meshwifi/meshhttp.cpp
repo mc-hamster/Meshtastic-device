@@ -197,9 +197,14 @@ void createSSLCert()
     DEBUG_MSG("SSL Cert Ready!\n");
 }
 
+#include "mesh/wifi/WebServerThread.h"
+
 void initWebServer()
 {
     DEBUG_MSG("Initializing Web Server ...\n");
+
+    // @mc-hamster proof of concept guess on where you might want this
+    webServerThread = new WebServerThread();
 
     prefs.begin("MeshtasticHTTPS", false);
 
