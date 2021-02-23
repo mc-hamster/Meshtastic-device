@@ -29,7 +29,7 @@ class StoreForwardPlugin : private concurrency::OSThread
      */
     uint32_t sawNode(uint32_t);
     void sawNodeReport();
-    void addHistory(const MeshPacket &mp)
+    void addHistory(const MeshPacket *mp);
 
   private:
     // Nothing here

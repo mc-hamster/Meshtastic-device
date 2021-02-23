@@ -146,12 +146,12 @@ uint32_t StoreForwardPlugin::sawNode(uint32_t node)
     return 0;
 }
 
-void StoreForwardPlugin::addHistory(const MeshPacket &mp)
+void StoreForwardPlugin::addHistory(const MeshPacket *mp)
 {
     auto &p = mp;
 
     static uint8_t bytes[MAX_RHPACKETLEN];
-    size_t numbytes = pb_encode_to_bytes(bytes, sizeof(bytes), SubPacket_fields, &p.decoded);
+    size_t numbytes = pb_encode_to_bytes(bytes, sizeof(bytes), SubPacket_fields, &p->decoded);
     assert(numbytes <= MAX_RHPACKETLEN);
 
     DEBUG_MSG("MP numbytes %u\n", numbytes);

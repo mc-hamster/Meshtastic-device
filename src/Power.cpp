@@ -246,6 +246,9 @@ bool Power::axp192Init()
 
             DEBUG_MSG("AXP192 Begin PASS\n");
 
+            DEBUG_MSG("Disabling charger for IZ1IVA\n");
+            axp.enableChargeing(false);
+
             // axp.setChgLEDMode(LED_BLINK_4HZ);
             DEBUG_MSG("DCDC1: %s\n", axp.isDCDC1Enable() ? "ENABLE" : "DISABLE");
             DEBUG_MSG("DCDC2: %s\n", axp.isDCDC2Enable() ? "ENABLE" : "DISABLE");
